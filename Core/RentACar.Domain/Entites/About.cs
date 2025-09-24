@@ -8,7 +8,7 @@ namespace RentACar.Domain.Entites
 {
     public class About
     {
-        public int AboutID { get; set; }
+        public int AboutID { get; set; } 
         public string? AboutTitle { get; set; }
         public string? AboutDescription { get; set; }
         public string? AboutImageUrl { get; set; }
