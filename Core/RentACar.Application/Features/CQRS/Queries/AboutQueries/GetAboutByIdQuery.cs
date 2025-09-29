@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentACar.Application.Features.CQRS.Queries
+namespace RentACar.Application.Features.CQRS.Queries.AboutQueries
 {
     public class GetAboutByIdQuery
     {

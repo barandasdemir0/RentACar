@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RentACar.Application.Features.CQRS.Commands.AboutCommands;
 using RentACar.Application.Features.CQRS.Handlers.AboutHandlers;
 using RentACar.Application.Features.CQRS.Queries;
+using RentACar.Application.Features.CQRS.Queries.AboutQueries;
 
 namespace RentACar.WebApi.Controllers
 {
