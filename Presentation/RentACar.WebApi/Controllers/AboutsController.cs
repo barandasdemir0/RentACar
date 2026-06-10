@@ -21,8 +21,7 @@ namespace RentACar.WebApi.Controllers
         {
             _createAboutCommandHandler = createAboutCommandHandler;
             _getAboutByIdQueryHandler = getAboutByIdQueryHandler;
-            _getAboutQueryHandler = getAboutQueryHandler;
-            _updateAboutCommandHandler = updateAboutCommandHandler;
+            _getAboutQueryHandler = getAboutQueryHandler;            _updateAboutCommandHandler = updateAboutCommandHandler;
             _removeAboutCommandHandler = removeAboutCommandHandler;
         }
 
