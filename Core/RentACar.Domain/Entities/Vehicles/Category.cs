@@ -1,4 +1,4 @@
-﻿namespace RentACar.Domain.Entities;
+﻿namespace RentACar.Domain.Entities.Vehicles;
 
 public class Category
 {

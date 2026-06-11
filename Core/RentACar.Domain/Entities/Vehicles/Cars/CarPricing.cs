@@ -1,4 +1,6 @@
-﻿namespace RentACar.Domain.Entities;
+﻿using RentACar.Domain.Entities.Rentals;
+
+namespace RentACar.Domain.Entities.Vehicles.Cars;
 
 public class CarPricing
 {

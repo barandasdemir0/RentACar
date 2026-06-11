@@ -1,6 +1,8 @@
-﻿namespace RentACar.Domain.Entities;
+﻿using RentACar.Domain.Entities.Common;
 
-public class About : BaseEntity
+namespace RentACar.Domain.Entities.Corporate;
+
+public sealed class About : AggregateRoot
 {
     public string Title { get; private set; }
     public string Description { get; private set; }
@@ -8,7 +10,7 @@ public class About : BaseEntity
 
 
     //efcore veritabanından veri okurken kullanır burayı
-    protected About()
+    private About()
     {
         Title = null!;
         Description = null!;

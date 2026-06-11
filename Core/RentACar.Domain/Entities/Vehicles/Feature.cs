@@ -1,4 +1,6 @@
-﻿namespace RentACar.Domain.Entities;
+﻿using RentACar.Domain.Entities.Vehicles.Cars;
+
+namespace RentACar.Domain.Entities.Vehicles;
 
 public class Feature
 {
