@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\RentACar.Domain\RentACar.Domain.csproj" />
+    <ProjectReference Include="..\..\Src\Core\RentACar.Domain\RentACar.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

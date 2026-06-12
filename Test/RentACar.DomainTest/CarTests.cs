@@ -51,9 +51,9 @@ public class CarTests
     public void RentCar_WhenCarIsNotAvailable_ShouldThrowInvalidOperationException()
     {
         //arrange
-         var car = new Car(Guid.CreateVersion7(), "M3",
-            new CarImages("https://link.com/cover.jpg", "https://link.com/big.jpg"),
-            new CarSpecifications(1000, "Otomatik", 5, 2, "Benzin"));
+        var car = new Car(Guid.CreateVersion7(), "M3",
+           new CarImages("https://link.com/cover.jpg", "https://link.com/big.jpg"),
+           new CarSpecifications(1000, "Otomatik", 5, 2, "Benzin"));
 
         car.SendToMaintenance();
 
@@ -63,4 +63,46 @@ public class CarTests
         //assert
         act.Should().Throw<InvalidOperationException>().WithMessage("Müsait olmayan araç kiralanamaz");
     }
+
+    //null patlıyormu
+
+    [Fact]
+    public void AddFeature_WithNullFeature_ShouldThrowArgumentNullException()
+    {
+        //arrange
+        var car = new Car(Guid.CreateVersion7(), "M3",
+           new CarImages("https://link.com/cover.jpg", "https://link.com/big.jpg"),
+           new CarSpecifications(1000, "Otomatik", 5, 2, "Benzin"));
+
+        //act
+        Action act = () => car.AddFeature(null!);
+        //assert
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    //valueobject test ve negatif kilometre
+    [Fact]
+    public void NewCarSpecifications_WithNegativeKilometer_ShouldThrowArgumentOutOfRangeException()
+    {
+
+        //act
+        Action act = () => new CarSpecifications(-50, "Otomatik", 5, 2, "Benzin");
+        //assert
+        act.Should().Throw<ArgumentOutOfRangeException>().WithParameterName("kilometer");
+    }
+
+    //geçersiz url testi
+    [Fact]
+    public void NewCarImages_WithInvalidUrl_ShouldThrowArgumentException()
+    {
+        //act
+        Action act = () => new CarImages("gecersiz-link.jpg", "https://link.com/big.jpg");
+
+
+        //assert
+        act.Should().Throw<ArgumentException>().WithMessage("*Geçersiz URL formatı.*");
+    }
+
+
+
 }
