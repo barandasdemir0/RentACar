@@ -1,10 +1,27 @@
-﻿using RentACar.Domain.Entities.Vehicles.Cars;
+﻿using RentACar.Domain.Entities.Common;
+using RentACar.Domain.Entities.Vehicles.Cars;
 
 namespace RentACar.Domain.Entities.Vehicles;
 
-public class Feature
+public sealed class Feature:AggregateRoot
 {
-    public int FeatureID { get; set; }
-    public string? FeatureName { get; set; }
-    public List<CarFeature>? CarFeatures { get; set; }
+    public string Name { get; private set; }
+
+    private Feature()
+    {
+        Name = null!;
+    }
+
+    public Feature(string name)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+        Name = name.Trim();
+    }
+
+    public void UpdateFeature(string name)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+        Name = name.Trim();
+    }
+
 }

@@ -24,8 +24,16 @@ public sealed class Service:AggregateRoot
 
         Title = title;
         Description = description;
-        Icon = icon;
-        IconUrl = iconUrl;
+        Icon = icon.Trim();
+        if (string.IsNullOrWhiteSpace(iconUrl))
+        {
+            IconUrl = null;
+        }
+        else
+        {
+            IconUrl = iconUrl;
+        }
+       
     }
     public void UpdateService(string title, string description, string icon, string? iconUrl = null)
     {
@@ -35,7 +43,14 @@ public sealed class Service:AggregateRoot
 
         Title = title;
         Description = description;
-        Icon = icon;
-        IconUrl = iconUrl;
+        Icon = icon.Trim(); ;
+        if (string.IsNullOrWhiteSpace(iconUrl))
+        {
+            IconUrl = null;
+        }
+        else
+        {
+            IconUrl = iconUrl;
+        }
     }
 }

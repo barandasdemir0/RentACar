@@ -24,7 +24,15 @@ public sealed class Testimonial:AggregateRoot
         Name = name;
         Title = title;
         Comment = comment;
-        ImageUrl = imageUrl;
+        if (string.IsNullOrWhiteSpace(imageUrl))
+        {
+            ImageUrl = null;
+        }
+        else
+        {
+            ImageUrl = imageUrl;
+        }
+       
     }
     public void UpdateTestimonial(string name, string title, string comment, string? imageUrl = null)
     {
@@ -35,6 +43,13 @@ public sealed class Testimonial:AggregateRoot
         Name = name;
         Title = title;
         Comment = comment;
-        ImageUrl = imageUrl;
+        if (string.IsNullOrWhiteSpace(imageUrl))
+        {
+            ImageUrl = null;
+        }
+        else
+        {
+            ImageUrl = imageUrl;
+        }
     }
 }

@@ -1,12 +1,12 @@
 ﻿namespace RentACar.Domain.Entities.Vehicles.Cars.ValueObjects;
 
-public record CarSpecifications
+public sealed record CarSpecifications
 {
-    public int Kilometer { get; init; }
-    public string Transmission { get; init; }
-    public byte Seats { get; init; }
-    public byte Luggage { get; init; }
-    public string Fuel { get; init; }
+    public int Kilometer { get; private init; }
+    public string Transmission { get; private init; }
+    public byte Seats { get; private init; }
+    public byte Luggage { get; private init; }
+    public string Fuel { get; private init; }
 
     public CarSpecifications(int kilometer, string transmission, byte seats, byte luggage, string fuel)
     {
@@ -27,7 +27,7 @@ public record CarSpecifications
         ArgumentException.ThrowIfNullOrWhiteSpace(fuel);
 
         Kilometer = kilometer;
-        Transmission = transmission;
+        Transmission = transmission.Trim();
         Seats = seats;
         Luggage = luggage;
         Fuel = fuel;

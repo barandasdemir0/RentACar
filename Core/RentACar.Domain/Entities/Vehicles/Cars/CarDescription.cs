@@ -1,9 +1,33 @@
-﻿namespace RentACar.Domain.Entities.Vehicles.Cars;
+﻿using RentACar.Domain.Entities.Common;
 
-public class CarDescription
+namespace RentACar.Domain.Entities.Vehicles.Cars;
+
+public sealed class CarDescription:BaseEntity
 {
-    public int CarDescriptionID { get; set; }
-    public int CarID { get; set; }
-    public Car? Car { get; set; }
-    public string? CarDescriptionDetails { get; set; }
+    public Guid CarId { get; private set; }
+    public Car Car { get; private set; } = null!;
+    public string Details { get; private set; }
+
+    private CarDescription()
+    {
+        Details = null!;
+    }
+
+    public CarDescription(Guid carId,string details)
+    {
+        if (carId == Guid.Empty)
+        {
+            throw new ArgumentException("Car Id boş olamaz.", nameof(carId));
+        }
+        ArgumentException.ThrowIfNullOrWhiteSpace(details);
+
+        CarId = carId;
+        Details = details;
+    }
+    public void UpdateCarDescription(string details)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(details);
+
+        Details = details;
+    }
 }

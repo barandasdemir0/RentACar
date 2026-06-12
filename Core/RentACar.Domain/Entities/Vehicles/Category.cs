@@ -1,7 +1,24 @@
-﻿namespace RentACar.Domain.Entities.Vehicles;
+﻿using RentACar.Domain.Entities.Common;
 
-public class Category
+namespace RentACar.Domain.Entities.Vehicles;
+
+public sealed class Category:AggregateRoot
 {
-    public int CategoryID { get; set; }
-    public string? CategoryName { get; set; }
+    public string Name { get; private set; }
+    private Category()
+    {
+        Name = null!;
+    }
+
+    public Category(string name)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+        Name = name.Trim();
+    }
+
+    public void UpdateCategory(string name)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+        Name = name.Trim();
+    }
 }

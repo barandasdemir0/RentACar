@@ -20,8 +20,8 @@ public sealed class SocialMedia:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(url);
         ArgumentException.ThrowIfNullOrWhiteSpace(icon);
         Name = name;
-        Url = url;
-        Icon = icon;
+        Url = url.Trim();
+        Icon = icon.Trim();
     }
     public void UpdateSocialMedia(string name, string url, string icon)
     {
@@ -29,7 +29,7 @@ public sealed class SocialMedia:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(url);
         ArgumentException.ThrowIfNullOrWhiteSpace(icon);
         Name = name;
-        Url = url;
-        Icon = icon;
+        Url = url.Trim();
+        Icon = icon.Trim();
     }
 }

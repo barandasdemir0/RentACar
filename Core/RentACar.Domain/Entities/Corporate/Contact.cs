@@ -7,7 +7,8 @@ public sealed class Contact:AggregateRoot
     public string Name { get; private set; } 
     public string Email { get; private set; }
     public string Subject { get; private set; } 
-    public string Message { get; private set; } 
+    public string Message { get; private set; }
+    public bool IsRead { get; private set; }
 
     private Contact()
     {
@@ -24,10 +25,20 @@ public sealed class Contact:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(subject);
         ArgumentException.ThrowIfNullOrWhiteSpace(message);
 
-        Name = name;
-        Email = email;
+        Name = name.Trim();
+        Email = email.Trim();
         Subject = subject;
         Message = message;
+        IsRead = false;
+    }
+
+    public void MarkAsRead()
+    {
+        if (IsRead)
+        {
+            return;
+        }
+        IsRead = true;
     }
 
 }

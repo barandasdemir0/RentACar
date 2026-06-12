@@ -1,13 +1,46 @@
-﻿using RentACar.Domain.Entities.Rentals;
+﻿using RentACar.Domain.Entities.Common;
+using RentACar.Domain.Entities.Rentals;
 
 namespace RentACar.Domain.Entities.Vehicles.Cars;
 
-public class CarPricing
+public sealed class CarPricing:BaseEntity
 {
-    public int CarPricingID { get; set; }
-    public int CarID { get; set; }
-    public Car?  Car { get; set; }
-    public int PricingID { get; set; }
-    public Pricing?  Pricing { get; set; }
-    public decimal  Amount { get; set; }//miktar
+    public Guid CarId { get; private set; }
+    public Car Car { get; private set; } = null!;
+    public Guid PricingId { get; private set; }
+    public Pricing Pricing { get; private set; } = null!;
+    public decimal  Amount { get; private set; }//miktar
+    private CarPricing()
+    {
+        
+    }
+    public CarPricing(Guid carId,Guid pricingId,decimal amount)
+    {
+        if (carId == Guid.Empty)
+        {
+            throw new ArgumentException("Car Id Boş olamaz", nameof(carId));
+        }
+        if (pricingId == Guid.Empty)
+        {
+            throw new ArgumentException("Pricing Id Boş Olamaz", nameof(pricingId));
+        }
+
+        if (amount<=0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(amount), "Kiralama bedeli 0 veya eksi olamaz.");
+        }
+
+        CarId = carId;
+        PricingId = pricingId;
+        Amount = amount;
+    }
+
+    public void UpdateCarPricing(decimal amount)
+    {
+        if (amount <= 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(amount), "Kiralama bedeli 0 veya eksi olamaz.");
+        }
+        Amount = amount;
+    }
 }

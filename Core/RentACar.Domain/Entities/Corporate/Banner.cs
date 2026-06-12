@@ -21,8 +21,25 @@ public sealed class Banner : AggregateRoot
 
         Title = title;
         Description = description;
-        VideoDescription = videoDescription;
-        VideoUrl = videoUrl;
+        // VideoDescription için boşluk temizliği
+        if (string.IsNullOrWhiteSpace(videoDescription))
+        {
+            VideoDescription = null;
+        }
+        else
+        {
+            VideoDescription = videoDescription;
+        }
+
+        // VideoUrl için boşluk temizliği
+        if (string.IsNullOrWhiteSpace(videoUrl))
+        {
+            VideoUrl = null;
+        }
+        else
+        {
+            VideoUrl = videoUrl;
+        }
     }
 
     public void UpdateBanner(string title, string description, string? videoDescription = null, string? videoUrl=null)
@@ -32,8 +49,25 @@ public sealed class Banner : AggregateRoot
 
         Title = title;
         Description = description;
-        VideoDescription = videoDescription;
-        VideoUrl = videoUrl;
+        // VideoDescription için boşluk temizliği
+        if (string.IsNullOrWhiteSpace(videoDescription))
+        {
+            VideoDescription = null;
+        }
+        else
+        {
+            VideoDescription = videoDescription;
+        }
+
+        // VideoUrl için boşluk temizliği
+        if (string.IsNullOrWhiteSpace(videoUrl))
+        {
+            VideoUrl = null;
+        }
+        else
+        {
+            VideoUrl = videoUrl;
+        }
     }
 
 

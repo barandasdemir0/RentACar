@@ -25,8 +25,8 @@ public sealed class FooterAddress:AggregateRoot
 
         Description = description;
         Address = address;
-        Mail = mail;
-        Phone = phone;
+        Mail = mail.Trim();
+        Phone = phone.Trim();
     }
 
     public void UpdateFooterAddress(string description, string address, string mail, string phone)
@@ -38,7 +38,7 @@ public sealed class FooterAddress:AggregateRoot
 
         Description = description;
         Address = address;
-        Mail = mail;
-        Phone = phone;
+        Mail = mail.Trim();
+        Phone = phone.Trim();
     }
 }

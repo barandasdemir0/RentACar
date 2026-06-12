@@ -17,10 +17,15 @@ public abstract class BaseEntity
     protected BaseEntity()
     {
         Id = Guid.CreateVersion7();
+        CreatedAt = DateTime.UtcNow;
         IsDeleted = false;
     }
     public void MarkAsDeleted()
     {
+        if (IsDeleted)
+        {
+            return;
+        }
         IsDeleted = true;
     }
 

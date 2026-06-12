@@ -24,7 +24,15 @@ public sealed class About : AggregateRoot
 
         Title = title;
         Description = description;
-        ImageUrl = imageUrl;
+
+        if (string.IsNullOrWhiteSpace(imageUrl))
+        {
+            ImageUrl = null;
+        }
+        else
+        {
+            ImageUrl = imageUrl;
+        }
     }
 
     //var olan kaydı güncellerken oluşacak kurallar
@@ -34,7 +42,14 @@ public sealed class About : AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
         Title = title;
         Description = description;
-        ImageUrl = imageUrl;
+        if (string.IsNullOrWhiteSpace(imageUrl))
+        {
+            ImageUrl = null;
+        }
+        else
+        {
+            ImageUrl = imageUrl;
+        }
     }
 }
 //ThrowIfNullOrWhiteSpace nedir ? null olup olmadığıu boş string olup olmadığğı sadece boşluklardan oluşup oluşmadığı
