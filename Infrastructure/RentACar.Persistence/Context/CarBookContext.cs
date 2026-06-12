@@ -2,6 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using RentACar.Domain.Entities.Common;
 using RentACar.Domain.Entities.Corporate;
+using RentACar.Domain.Entities.Rentals;
+using RentACar.Domain.Entities.Vehicles;
+using RentACar.Domain.Entities.Vehicles.Cars;
 using System.Security.Claims;
 
 namespace RentACar.Persistence.Context;
@@ -15,6 +18,27 @@ internal sealed class CarBookContext : DbContext
     }
 
     public DbSet<About> Abouts { get; set; }
+    public DbSet<Banner> Banners { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
+    public DbSet<FooterAddress> FooterAddresses { get; set; }
+    public DbSet<Service> Services { get; set; }
+    public DbSet<SocialMedia> SocialMedias { get; set; }
+    public DbSet<Testimonial> Testimonials { get; set; }
+    public DbSet<Location> Locations { get; set; }
+    public DbSet<Pricing> Pricings { get; set; }
+    public DbSet<Car> Car { get; set; }
+    public DbSet<CarDescription> CarDescriptions { get; set; }
+    public DbSet<CarFeature> CarFeatures { get; set; }
+    public DbSet<CarPricing> CarPricings { get; set; }
+    public DbSet<Brand> Brands { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Feature> Features { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CarBookContext).Assembly);
+    }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
