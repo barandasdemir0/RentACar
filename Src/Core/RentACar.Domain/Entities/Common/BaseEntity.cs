@@ -4,12 +4,12 @@ public abstract class BaseEntity
 {
    
     public  Guid Id { get; protected set; }
-    public DateTime CreatedAt { get; protected set; }
-    public string? CreatedBy { get; protected set; } //kaydı ekleyenin IDsi tutmak adına
-    public DateTime? UpdatedAt { get; protected set; }
-    public string? UpdatedBy { get; protected set; }
-    public DateTime? DeletedAt { get; protected set; }
-    public string? DeletedBy { get; protected set; }
+    public DateTimeOffset CreatedAt { get; protected set; }
+    public Guid CreatedBy { get; protected set; } //kaydı ekleyenin IDsi tutmak adına
+    public DateTimeOffset? UpdatedAt { get; protected set; }
+    public Guid? UpdatedBy { get; protected set; }
+    public DateTimeOffset? DeletedAt { get; protected set; }
+    public Guid? DeletedBy { get; protected set; }
     public bool IsDeleted { get; protected set; }
 
 
@@ -17,7 +17,7 @@ public abstract class BaseEntity
     protected BaseEntity()
     {
         Id = Guid.CreateVersion7();
-        CreatedAt = DateTime.UtcNow;
+        CreatedAt = DateTimeOffset.UtcNow;
         IsDeleted = false;
     }
     public void MarkAsDeleted()
@@ -26,6 +26,7 @@ public abstract class BaseEntity
         {
             return;
         }
+        
         IsDeleted = true;
     }
 

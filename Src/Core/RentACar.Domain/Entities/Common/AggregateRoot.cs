@@ -1,6 +1,7 @@
-﻿namespace RentACar.Domain.Entities.Common;
+﻿using RentACar.Domain.Entities.Common.Interfaces;
 
-public interface IDomainEvent { }
+namespace RentACar.Domain.Entities.Common;
+
 public abstract class AggregateRoot : BaseEntity
 {
 
