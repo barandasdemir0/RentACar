@@ -12,7 +12,7 @@ internal sealed class FooterAddressConfiguration:BaseEntityConfiguration<FooterA
 
         builder.ToTable("FoterAddresses");
 
-        builder.Property(p => p.Description).HasColumnType("test").IsRequired();
+        builder.Property(p => p.Description).HasColumnType("text").IsRequired();
 
         builder.Property(p => p.Address).HasMaxLength(2000).IsRequired();
 

@@ -18,7 +18,7 @@ internal sealed class ContactConfiguration:BaseEntityConfiguration<Contact>
 
         builder.Property(p => p.Subject).HasMaxLength(500).IsRequired();
 
-        builder.Property(p => p.Message).HasColumnType("test").IsRequired();
+        builder.Property(p => p.Message).HasColumnType("text").IsRequired();
 
         builder.Property(p => p.IsRead).HasDefaultValue(false).IsRequired();
     }

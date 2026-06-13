@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace RentACar.Persistence.Context;
 
-internal sealed class CarBookContext : DbContext
+public sealed class CarBookContext : DbContext
 {
     private readonly ICurrentUserService _currentUserService;
     public CarBookContext(DbContextOptions<CarBookContext> options, ICurrentUserService currentUserService) : base(options)

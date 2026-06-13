@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RentACar.Domain.Entities.Vehicles.Cars;
 
-namespace RentACar.Persistence.Configurations.Vehicles.Car;
+namespace RentACar.Persistence.Configurations.Vehicles;
 
 internal sealed class CarFeatureConfiguration:BaseEntityConfiguration<CarFeature>
 {
