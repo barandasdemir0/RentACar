@@ -20,11 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Src\Core\RentACar.Domain\RentACar.Domain.csproj" />
+    <Folder Include="Configurations\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\" />
+    <ProjectReference Include="..\..\Core\RentACar.Domain\RentACar.Domain.csproj" />
   </ItemGroup>
 
 </Project>
