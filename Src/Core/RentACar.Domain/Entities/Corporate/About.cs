@@ -22,8 +22,8 @@ public sealed class About : AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(title);
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
 
-        Title = title;
-        Description = description;
+        Title = title.Trim();
+        Description = description.Trim();
 
         if (string.IsNullOrWhiteSpace(imageUrl))
         {
@@ -31,7 +31,7 @@ public sealed class About : AggregateRoot
         }
         else
         {
-            ImageUrl = imageUrl;
+            ImageUrl = imageUrl.Trim();
         }
     }
 
@@ -40,15 +40,15 @@ public sealed class About : AggregateRoot
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(title);
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
-        Title = title;
-        Description = description;
+        Title = title.Trim();
+        Description = description.Trim();
         if (string.IsNullOrWhiteSpace(imageUrl))
         {
             ImageUrl = null;
         }
         else
         {
-            ImageUrl = imageUrl;
+            ImageUrl = imageUrl.Trim();
         }
     }
 }

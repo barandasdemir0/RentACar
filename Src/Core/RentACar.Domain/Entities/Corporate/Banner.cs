@@ -19,8 +19,8 @@ public sealed class Banner : AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(title);
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
 
-        Title = title;
-        Description = description;
+        Title = title.Trim();
+        Description = description.Trim();
         // VideoDescription için boşluk temizliği
         if (string.IsNullOrWhiteSpace(videoDescription))
         {
@@ -28,7 +28,7 @@ public sealed class Banner : AggregateRoot
         }
         else
         {
-            VideoDescription = videoDescription;
+            VideoDescription = videoDescription.Trim();
         }
 
         // VideoUrl için boşluk temizliği
@@ -38,7 +38,7 @@ public sealed class Banner : AggregateRoot
         }
         else
         {
-            VideoUrl = videoUrl;
+            VideoUrl = videoUrl.Trim();
         }
     }
 
@@ -47,8 +47,8 @@ public sealed class Banner : AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(title);
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
 
-        Title = title;
-        Description = description;
+        Title = title.Trim();
+        Description = description.Trim();
         // VideoDescription için boşluk temizliği
         if (string.IsNullOrWhiteSpace(videoDescription))
         {
@@ -56,7 +56,7 @@ public sealed class Banner : AggregateRoot
         }
         else
         {
-            VideoDescription = videoDescription;
+            VideoDescription = videoDescription.Trim();
         }
 
         // VideoUrl için boşluk temizliği
@@ -66,7 +66,7 @@ public sealed class Banner : AggregateRoot
         }
         else
         {
-            VideoUrl = videoUrl;
+            VideoUrl = videoUrl.Trim();
         }
     }
 

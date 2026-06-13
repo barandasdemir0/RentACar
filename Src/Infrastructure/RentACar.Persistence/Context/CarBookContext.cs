@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RentACar.Domain.Entities.Common;
+using RentACar.Domain.Entities.Common.Interfaces;
 using RentACar.Domain.Entities.Corporate;
 using RentACar.Domain.Entities.Rentals;
 using RentACar.Domain.Entities.Vehicles;
@@ -11,10 +11,10 @@ namespace RentACar.Persistence.Context;
 
 internal sealed class CarBookContext : DbContext
 {
-    private readonly IHttpContextAccessor _httpContextAccessor;
-    public CarBookContext(DbContextOptions<CarBookContext> options, IHttpContextAccessor httpContextAccessor) : base(options)
+    private readonly ICurrentUserService _currentUserService;
+    public CarBookContext(DbContextOptions<CarBookContext> options, ICurrentUserService currentUserService) : base(options)
     {
-        _httpContextAccessor = httpContextAccessor;
+        _currentUserService = currentUserService;
     }
 
     public DbSet<About> Abouts { get; set; }
@@ -46,17 +46,17 @@ internal sealed class CarBookContext : DbContext
 
        
         //bilinmeyen kullanıcı istek attığın da site çökmesin diye boş guid
-        Guid userId = Guid.Empty;
-        var httpContext = _httpContextAccessor.HttpContext;
-
-        if (httpContext?.User?.Identity?.IsAuthenticated==true)
+        Guid userId;
+        if (_currentUserService.UserId != null)
         {
-            var userClaim = httpContext.User.Claims.FirstOrDefault(p => p.Type == "sub" || p.Type == ClaimTypes.NameIdentifier);
-            if (userClaim!=null)
-            {
-                Guid.TryParse(userClaim.Value, out userId);
-            }
+            userId = _currentUserService.UserId.Value;
         }
+        else
+        {
+            userId = Guid.Empty;
+        }
+
+       
 
         foreach (var entry in entries)
         {

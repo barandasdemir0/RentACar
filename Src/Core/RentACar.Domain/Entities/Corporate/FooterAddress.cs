@@ -23,9 +23,9 @@ public sealed class FooterAddress:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(mail);
         ArgumentException.ThrowIfNullOrWhiteSpace(phone);
 
-        Description = description;
-        Address = address;
-        Mail = mail.Trim();
+        Description = description.Trim();
+        Address = address.Trim();
+        Mail = mail.Trim().ToLowerInvariant();
         Phone = phone.Trim();
     }
 
@@ -36,9 +36,9 @@ public sealed class FooterAddress:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(mail);
         ArgumentException.ThrowIfNullOrWhiteSpace(phone);
 
-        Description = description;
-        Address = address;
-        Mail = mail.Trim();
+        Description = description.Trim();
+        Address = address.Trim();
+        Mail = mail.Trim().ToLowerInvariant();
         Phone = phone.Trim();
     }
 }

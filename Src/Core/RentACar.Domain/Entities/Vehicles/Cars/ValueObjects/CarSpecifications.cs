@@ -19,8 +19,8 @@ public sealed record CarSpecifications
             throw new ArgumentOutOfRangeException(nameof(seats), "Koltuk sayısı 0 veya eksi olamaz.");
         }
         if (luggage < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(luggage), "Bagaj kapasitesi eksi olamaz.");
+        {
+            throw new ArgumentOutOfRangeException(nameof(luggage), "Bagaj kapasitesi eksi olamaz.");
         }
 
         ArgumentException.ThrowIfNullOrWhiteSpace(transmission);
@@ -30,6 +30,6 @@ public sealed record CarSpecifications
         Transmission = transmission.Trim();
         Seats = seats;
         Luggage = luggage;
-        Fuel = fuel;
+        Fuel = fuel.Trim();
     }
 }

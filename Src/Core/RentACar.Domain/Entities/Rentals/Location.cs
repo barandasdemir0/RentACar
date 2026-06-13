@@ -15,13 +15,13 @@ public sealed class Location : AggregateRoot
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
         Name = name.Trim();
-        IsActive = false;
+        IsActive = true;
     }
     public void UpdateLocation(string name)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
         Name = name.Trim();
-        IsActive = false;
+        IsActive = true;
     }
 
     public void ActivateLocation() => IsActive = true;

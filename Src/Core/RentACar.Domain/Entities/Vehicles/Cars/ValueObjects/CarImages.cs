@@ -14,11 +14,11 @@ public sealed record CarImages
         var trimmedCover = coverImageUrl.Trim();
         var trimmedBig = bigImageUrl.Trim();
         // Ekstra: URL format kontrolü
-        if (!coverImageUrl.StartsWith("http"))
+        if (!trimmedCover.StartsWith("http") || !trimmedBig.StartsWith("http"))
         {
-            throw new ArgumentException("Geçersiz URL formatı.", nameof(coverImageUrl));
+            throw new ArgumentException("Geçersiz URL formatı. Linkler 'http' ile başlamalıdır.");
         }
-        CoverImageUrl = coverImageUrl;
-        BigImageUrl = bigImageUrl;
+        CoverImageUrl = trimmedCover;
+        BigImageUrl = trimmedBig;
     }
 }

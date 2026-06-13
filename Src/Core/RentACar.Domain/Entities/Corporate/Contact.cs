@@ -26,9 +26,10 @@ public sealed class Contact:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(message);
 
         Name = name.Trim();
-        Email = email.Trim();
-        Subject = subject;
-        Message = message;
+        //tolowerınvariant ile tamamen küçük harfe çevirdik
+        Email = email.Trim().ToLowerInvariant();
+        Subject = subject.Trim();
+        Message = message.Trim();
         IsRead = false;
     }
 

@@ -22,12 +22,12 @@ public sealed class CarDescription:BaseEntity
         ArgumentException.ThrowIfNullOrWhiteSpace(details);
 
         CarId = carId;
-        Details = details;
+        Details = details.Trim();
     }
     public void UpdateCarDescription(string details)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(details);
 
-        Details = details;
+        Details = details.Trim();
     }
 }

@@ -21,16 +21,16 @@ public sealed class Testimonial:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(title);
         ArgumentException.ThrowIfNullOrWhiteSpace(comment);
 
-        Name = name;
-        Title = title;
-        Comment = comment;
+        Name = name.Trim();
+        Title = title.Trim();
+        Comment = comment.Trim();
         if (string.IsNullOrWhiteSpace(imageUrl))
         {
             ImageUrl = null;
         }
         else
         {
-            ImageUrl = imageUrl;
+            ImageUrl = imageUrl.Trim();
         }
        
     }
@@ -40,16 +40,16 @@ public sealed class Testimonial:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(title);
         ArgumentException.ThrowIfNullOrWhiteSpace(comment);
 
-        Name = name;
-        Title = title;
-        Comment = comment;
+        Name = name.Trim();
+        Title = title.Trim();
+        Comment = comment.Trim();
         if (string.IsNullOrWhiteSpace(imageUrl))
         {
             ImageUrl = null;
         }
         else
         {
-            ImageUrl = imageUrl;
+            ImageUrl = imageUrl.Trim();
         }
     }
 }

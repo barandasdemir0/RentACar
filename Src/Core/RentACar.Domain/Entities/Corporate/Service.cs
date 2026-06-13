@@ -22,8 +22,8 @@ public sealed class Service:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
         ArgumentException.ThrowIfNullOrWhiteSpace(icon);
 
-        Title = title;
-        Description = description;
+        Title = title.Trim();
+        Description = description.Trim();
         Icon = icon.Trim();
         if (string.IsNullOrWhiteSpace(iconUrl))
         {
@@ -31,7 +31,7 @@ public sealed class Service:AggregateRoot
         }
         else
         {
-            IconUrl = iconUrl;
+            IconUrl = iconUrl.Trim();
         }
        
     }
@@ -41,8 +41,8 @@ public sealed class Service:AggregateRoot
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
         ArgumentException.ThrowIfNullOrWhiteSpace(icon);
 
-        Title = title;
-        Description = description;
+        Title = title.Trim();
+        Description = description.Trim();
         Icon = icon.Trim(); ;
         if (string.IsNullOrWhiteSpace(iconUrl))
         {
@@ -50,7 +50,7 @@ public sealed class Service:AggregateRoot
         }
         else
         {
-            IconUrl = iconUrl;
+            IconUrl = iconUrl.Trim();
         }
     }
 }
