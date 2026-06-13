@@ -104,5 +104,38 @@ public class CarTests
     }
 
 
+    //trim fonksiyonları çalışıyormu
+
+    [Fact]
+    public void UpdateCar_WithValidParameters_ShouldUpdateAndTrimCorrectly()
+    {
+        //arrange
+        var car = new Car(Guid.CreateVersion7(), "M3",
+            new CarImages("https://link.com/cover.jpg", "https://link.com/big.jpg"),
+            new CarSpecifications(1000, "Otomatik", 5, 2, "Benzin"));
+        var newBrandId = Guid.CreateVersion7();
+
+        //act
+        car.UpdateCar(newBrandId, "   M4 Coupe   ",
+            new CarImages("https://link.com/new-cover.jpg", "https://link.com/new-big.jpg"),
+            new CarSpecifications(2000, "Manuel", 4, 1, "Dizel"));
+
+        //assert
+        car.BrandId.Should().Be(newBrandId);
+        car.Model.Should().Be("M4 Coupe");
+
+    }
+
+    //koltuk sayısı 0a indiriyormu
+    [Fact]
+    public void NewCarSpecifications_WithInvalidSeats_ShouldThrowArgumentOutOfRangeException()
+    {
+        Action act = () => new CarSpecifications(1000, "Otomatik", 0, 2, "Benzin");
+
+        act.Should().Throw<ArgumentOutOfRangeException>().WithParameterName("seats");
+
+    }
+
+
 
 }
